@@ -1,0 +1,13 @@
+{
+  "name": "Pascalia",
+  "version": "0.0.0",
+  "description": "Exploring Catalan-like numbers through the lens of Pascal's relation.",
+  "repository": "http://github.com/jiangts/pascalia",
+  "author": "Allan Jiang",
+  "license": "MIT",
+  "dependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-coffee": "*",
+    "grunt-contrib-watch": "*"
+  }
+}
