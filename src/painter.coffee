@@ -46,35 +46,17 @@ fabric.Object::originX = fabric.Object::originY = 'center'
 
 p1 = new Parent {index: 0, value: 1}
 p2 = new Parent {index: -1, value: -1}
-p3 = new Parent {index: -1, value: 2}
 
-#painter = new Painter [p1, p2, p3], 20
 painter = new Painter [p1, p2], 20
 painter.paint()
 
+$("#setup").click ->
+  str = prompt 'Setup top row of Pascal\'s Matrix'
+  cfg = eval "[#{str}]"
+  parents = []
+  for pair in cfg
+    parents.push new Parent index:pair[0], value:pair[1]
 
-#canvas = new fabric.Canvas 'c', selection: false
-#fabric.Object::originX = fabric.Object::originY = 'center'
-#
-#paintCell = (left, top) ->
-#  c = new fabric.Text('0',
-#    left: left,
-#    top: top,
-#    fontSize: 20,
-#    lockMovementX: true,
-#    lockMovementY: true
-#  )
-#  c.hasControls = c.hasBorders = false
-#  return c
-#
-#canvas.add(
-#  paintCell 100, 100
-#  paintCell 102, 30
-#  paintCell 24, 24
-#  paintCell 325, 73
-#)
-#
-#window.c = canvas
-##window.c.getObjects();
-##window.c.renderAll();
-##scaleToWidth(50)
+  canvas.clear().renderAll();
+  painter = new Painter parents, 20
+  painter.paint()
