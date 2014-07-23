@@ -1,3 +1,26 @@
+###
+Adapted from http://stackoverflow.com/questions/4288253/html5-canvas-100-width-height-of-viewport
+###
+canvas = $('#c')[0]
+context = canvas.getContext '2d'
+
+#TODO implement this crap later...
+#resize the canvas to fill browser window dynamically
+#window.addEventListener 'resize', resizeCanvas, false
+
+resizeCanvas = () ->
+  canvas.width = window.innerWidth
+  canvas.height = window.innerHeight
+
+  ###
+   Your drawings need to be inside this function otherwise they will be reset when 
+   you resize the browser window and the canvas goes will be cleared.
+  ###
+  #drawStuff()
+
+resizeCanvas()
+
+#next file
 ##
 # We want to
 # 1. define the parents
@@ -147,11 +170,12 @@ class Painter extends Pascal
 canvas = new fabric.Canvas 'c', selection: false
 fabric.Object::originX = fabric.Object::originY = 'center'
 
-p1 = new Parent {index: 1, value: 1}
-p2 = new Parent {index: 0, value: -3}
+p1 = new Parent {index: 0, value: 1}
+p2 = new Parent {index: -1, value: -1}
 p3 = new Parent {index: -1, value: 2}
 
-painter = new Painter [p1, p2, p3], 20
+#painter = new Painter [p1, p2, p3], 20
+painter = new Painter [p1, p2], 20
 painter.paint()
 
 

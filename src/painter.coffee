@@ -44,11 +44,12 @@ class Painter extends Pascal
 canvas = new fabric.Canvas 'c', selection: false
 fabric.Object::originX = fabric.Object::originY = 'center'
 
-p1 = new Parent {index: 1, value: 1}
-p2 = new Parent {index: 0, value: -3}
+p1 = new Parent {index: 0, value: 1}
+p2 = new Parent {index: -1, value: -1}
 p3 = new Parent {index: -1, value: 2}
 
-painter = new Painter [p1, p2, p3], 20
+#painter = new Painter [p1, p2, p3], 20
+painter = new Painter [p1, p2], 20
 painter.paint()
 
 
