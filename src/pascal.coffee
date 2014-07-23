@@ -83,13 +83,13 @@ class Pascal
         cell.value = @calculateCell cell
         @cells[i] = cell
 
-p1 = new Parent {index: 0, value: 1}
-p2 = new Parent {index: -1, value: -1}
+#p1 = new Parent {index: 1, value: 1}
+#p2 = new Parent {index: -1, value: -2}
 
 #pascal = new Pascal
-#
+
 #pascal.addCells [p1, p2]
-#
+
 #pascal.populate 30
 #pascal.calculate()
 #console.log pascal.cells
@@ -99,18 +99,3 @@ Catalan Example
 for i in [1..10]
   console.log pascal.calculateCell new Cell level:(2*i), index:i
 ###
-
-#TODO put into painter file, and have a concatenation grunt script
-class Painter extends Pascal
-  constructor: (parents, depth) ->
-    super()
-    @addCells parents
-    @populate depth
-    @calculate()
-
-  paint: ->
-      
-  createCell: (cell) ->
-
-window.p = new Painter [p1, p2], 20
-
