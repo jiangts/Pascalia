@@ -19,3 +19,4 @@ resizeCanvas = () ->
   #drawStuff()
 
 resizeCanvas()
+
