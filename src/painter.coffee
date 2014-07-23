@@ -23,9 +23,14 @@ class Painter extends Pascal
     return @paintCell value, left, top
 
   paintCell: (value, left, top) ->
+    switch
+      when value < 0 then color = 'red'
+      when value > 0 then color = 'green'
+      else color = 'blue'
     c = new fabric.Text(value,
       left: left,
       top: top,
+      fill: color,
       fontSize: 20,
       lockMovementX: true,
       lockMovementY: true
@@ -40,9 +45,10 @@ canvas = new fabric.Canvas 'c', selection: false
 fabric.Object::originX = fabric.Object::originY = 'center'
 
 p1 = new Parent {index: 1, value: 1}
-p2 = new Parent {index: -1, value: -2}
+p2 = new Parent {index: 0, value: -3}
+p3 = new Parent {index: -1, value: 2}
 
-painter = window.p = new Painter [p1, p2], 20
+painter = new Painter [p1, p2, p3], 20
 painter.paint()
 
 
